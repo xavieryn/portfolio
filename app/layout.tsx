@@ -1,8 +1,18 @@
 import type { Metadata } from 'next'
-import { Fira_Code } from 'next/font/google'
+import localFont from 'next/font/local'
+import { Patrick_Hand } from 'next/font/google'
 import './globals.css'
 
-const firaCode = Fira_Code({ subsets: ['latin'], variable: '--font-fira-code' })
+const patrickHand = Patrick_Hand({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-patrick-hand',
+})
+
+const riitn = localFont({
+  src: '../public/fonts/RiiTN_R.otf',
+  variable: '--font-riitn',
+})
 
 export const metadata: Metadata = {
   title: 'Xavier Nishikawa - Portfolio',
@@ -16,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={firaCode.variable}>{children}</body>
+      <body className={`${patrickHand.variable} ${riitn.variable}`}>{children}</body>
     </html>
   )
 }

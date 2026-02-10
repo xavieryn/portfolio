@@ -54,24 +54,26 @@ export default function Experience() {
         >
           My Work
         </motion.h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 max-w-6xl">
           {experiences.map((exp, index) => (
             <motion.a
               key={index}
               href={exp.link}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, rotateX: -90, transformOrigin: "top" }}
               animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
+                isInView
+                  ? { opacity: 1, rotateX: 0 }
+                  : { opacity: 0, rotateX: -90 }
               }
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass rounded-3xl p-8 block group cursor-pointer hover:glass-strong hover-glow transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -8 }}
+              className="paper-card p-8 block group cursor-pointer"
+              whileHover={{ scale: 1.02, rotate: 1 }}
             >
-              <h3 className="text-xl font-semibold mb-2">{exp.role}</h3>
-              <p className="text-blue-400 mb-3">{exp.organization}</p>
-              <p className="text-gray-300 leading-relaxed text-sm">
+              <h3 className="text-xl font-bold mb-2 text-ink-black">{exp.role}</h3>
+              <p className="text-doodle-blue font-bold mb-3">{exp.organization}</p>
+              <p className="text-gray-700 leading-relaxed text-base font-medium">
                 {exp.description}
               </p>
             </motion.a>

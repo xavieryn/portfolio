@@ -12,7 +12,7 @@ export default function ScrollIndicator() {
     >
       <a
         href="/about"
-        className="flex flex-col items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors"
+        className="flex flex-col items-center gap-2 text-ink-black hover:text-doodle-blue transition-colors"
         aria-label="Scroll down"
       >
         <svg
@@ -20,13 +20,13 @@ export default function ScrollIndicator() {
           height="44"
           viewBox="0 0 28 44"
           fill="none"
-          className="text-gray-500"
+          className="text-ink-black"
         >
           {/* Mouse body - rounded oval outline */}
           <path
             d="M14 2C7.4 2 2 7.4 2 14v12c0 6.6 5.4 12 12 12s12-5.4 12-12V14c0-6.6-5.4-12-12-12z"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="3"
             fill="none"
             strokeLinecap="round"
           />
@@ -36,7 +36,8 @@ export default function ScrollIndicator() {
             cy="14"
             rx="2.5"
             ry="4"
-            fill="#3b82f6"
+            fill="currentColor"
+            className="text-doodle-blue"
             animate={{ cy: [14, 20, 14] }}
             transition={{
               duration: 1.5,

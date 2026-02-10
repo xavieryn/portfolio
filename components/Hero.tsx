@@ -44,34 +44,7 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-start relative overflow-hidden"
     >
-      {/* Background gradient with subtle shift */}
-      <div className="absolute inset-0 gradient-shift bg-gradient-to-br from-space-black via-deep-navy to-space-black opacity-50" />
 
-      {/* Floating blobs */}
-      <motion.div
-        className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
-        animate={{
-          x: [0, 30, 0],
-          y: [0, -50, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
-        animate={{
-          x: [0, -30, 0],
-          y: [0, 50, 0],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
 
       <div className="container mx-auto px-6 sm:px-[8%] lg:px-[10%] relative z-10 w-full max-w-7xl">
         <motion.div
@@ -88,7 +61,7 @@ export default function Hero() {
           {/* School */}
           <motion.div
             variants={letterVariants}
-            className="text-lg md:text-xl text-gray-400 mb-8"
+            className="text-lg md:text-xl text-gray-700 mb-8 font-bold"
           >
             {school}
           </motion.div>
@@ -96,7 +69,7 @@ export default function Hero() {
           {/* Subtext */}
           <motion.p
             variants={letterVariants}
-            className="text-lg md:text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed"
+            className="text-lg md:text-xl text-gray-800 max-w-2xl mb-12 leading-relaxed"
           >
             {subtext}
           </motion.p>
@@ -108,33 +81,19 @@ export default function Hero() {
           >
             <motion.a
               href="/about"
-              className="px-8 py-4 rounded-full glass-strong text-white font-medium relative overflow-hidden group hover-glow"
+              className="doodle-button rounded-full text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">View Resume</span>
-              <motion.div
-                className="absolute inset-0 bg-blue-500/20 rounded-full"
-                initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                style={{ filter: "blur(20px)" }}
-              />
+              View Resume
             </motion.a>
             <motion.a
               href="#experience"
-              className="px-8 py-4 rounded-full glass-strong text-white font-medium relative overflow-hidden group hover-glow"
+              className="doodle-button rounded-full text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">See My Work</span>
-              <motion.div
-                className="absolute inset-0 bg-blue-500/20 rounded-full"
-                initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                style={{ filter: "blur(20px)" }}
-              />
+              See My Work
             </motion.a>
           </motion.div>
         </motion.div>

@@ -48,11 +48,10 @@ export default function TypingText() {
 
   return (
     <h1
-      className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 min-h-[3rem] md:min-h-[3.5rem] lg:min-h-[4rem] flex items-center justify-start [font-family:var(--font-fira-code)]"
-      style={{ color: "var(--accent-blue)" }}
+      className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 min-h-[3rem] md:min-h-[3.5rem] lg:min-h-[4rem] flex items-center justify-start text-doodle-blue"
     >
       {currentLine.slice(0, charIndex)}
-      <span className="animate-pulse" style={{ color: "var(--accent-blue)" }}>
+      <span className="animate-pulse text-doodle-blue">
         |
       </span>
     </h1>

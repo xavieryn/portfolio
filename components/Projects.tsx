@@ -53,30 +53,32 @@ export default function Projects() {
         >
           Projects
         </motion.h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <motion.a
               key={index}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, rotateX: -90, transformOrigin: "top" }}
               animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
+                isInView
+                  ? { opacity: 1, rotateX: 0 }
+                  : { opacity: 0, rotateX: -90 }
               }
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass rounded-3xl p-8 group cursor-pointer block hover-glow"
-              whileHover={{ scale: 1.05, y: -8 }}
+              className="paper-card p-8 group cursor-pointer block"
+              whileHover={{ scale: 1.02, rotate: -1 }}
             >
-              <h3 className="text-2xl font-semibold mb-4">{project.name}</h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <h3 className="text-2xl font-bold mb-4 text-ink-black">{project.name}</h3>
+              <p className="text-gray-700 mb-6 leading-relaxed font-medium">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className="px-3 py-1 rounded-full text-xs glass text-gray-300"
+                    className="px-3 py-1 bg-gray-100 border-2 border-ink-black rounded-lg text-xs font-bold text-ink-black transform -rotate-2"
                   >
                     {tag}
                   </span>

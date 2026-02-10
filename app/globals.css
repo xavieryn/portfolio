@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --space-black: #0a0e1a;
-  --deep-navy: #0f1629;
-  --accent-blue: #3b82f6;
+  --paper-white: #fdfaf6;
+  --ink-black: #1f2937;
+  --doodle-blue: #2563eb;
 }
 
 * {
@@ -19,99 +19,129 @@ html {
 }
 
 body {
-  background: linear-gradient(
-    135deg,
-    var(--space-black) 0%,
-    var(--deep-navy) 100%
-  );
-  color: #e5e7eb;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background-image: url('/cardboard.avif');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--ink-black);
+  font-family: var(--font-patrick-hand), cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Glassmorphism utility */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-riitn), cursive;
 }
 
-.glass-strong {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+/* Paper card effect */
+/* Sticky Note / Paper Card Effect */
+.paper-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--ink-black);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Ensures the pseudo-element doesn't overflow weirdly if not positioned right */
 }
 
-/* Hover glow for clickable boxes (projects, experience cards, buttons, etc.) */
-.hover-glow {
-  transition:
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+/* Dog-ear / Peel effect */
+.paper-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 40px 40px;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent; /* Shadow of the curl */
+  box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  pointer-events: none;
 }
-.hover-glow:hover {
-  box-shadow:
-    0 0 25px rgba(59, 130, 246, 0.35),
-    0 0 50px rgba(59, 130, 246, 0.15);
-  border-color: rgba(59, 130, 246, 0.25);
+
+/* The actual white curl part */
+.paper-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 40px 40px;
+  border-color: transparent transparent #f0f0f0 transparent; /* The back of the paper */
+  transition: all 0.3s ease;
+  z-index: 10;
+  pointer-events: none;
 }
-.hover-glow-subtle:hover {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+
+.paper-card:hover {
+  transform: rotate(0deg) scale(1.02) translateY(-5px);
+  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.1);
+}
+
+.paper-card:hover::after,
+.paper-card:hover::before {
+  border-width: 0 0 60px 60px; /* Increase curl size on hover */
+}
+
+.paper-card:hover::before {
+  border-color: transparent transparent #e5e5e5 transparent; /* Slightly darker back logic */
+}
+
+/* Button style */
+.doodle-button {
+  background: var(--paper-white);
+  border: 2px solid var(--ink-black);
+  box-shadow: 3px 3px 0px var(--ink-black);
+  color: var(--ink-black);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.doodle-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px var(--ink-black);
+  background: #f0f0f0;
+}
+
+.doodle-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--ink-black);
 }
 
 /* Smooth scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--space-black);
+  background: #f0f0f0;
+  border-left: 2px solid var(--ink-black);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(59, 130, 246, 0.3);
-  border-radius: 4px;
+  background: var(--ink-black);
+  border: 2px solid #f0f0f0;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.5);
+  background: #374151;
 }
 
-/* Floating blob animation */
-@keyframes blob {
-  0%,
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
+/* Floating animation (slightly jittery for doodle feel) */
+@keyframes float-doodle {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
 }
 
-.blob {
-  animation: blob 20s ease-in-out infinite;
-}
-
-/* Gradient shift animation */
-@keyframes gradient-shift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.gradient-shift {
-  background-size: 200% 200%;
-  animation: gradient-shift 15s ease infinite;
+.animate-float-doodle {
+  animation: float-doodle 4s ease-in-out infinite;
 }

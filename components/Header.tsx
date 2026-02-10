@@ -26,14 +26,14 @@ export default function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-strong py-3' : 'py-4'
+        scrolled ? 'paper-card py-3 m-4 rounded-full max-w-4xl mx-auto' : 'py-4'
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-[10%] flex items-center justify-between max-w-7xl">
         <motion.a
           href="/"
-          className="text-xl font-semibold block shrink-0"
-          whileHover={{ scale: 1.05 }}
+          className="text-xl font-bold block shrink-0 text-ink-black"
+          whileHover={{ scale: 1.05, rotate: -5 }}
         >
           XN
         </motion.a>
@@ -42,14 +42,14 @@ export default function Header() {
             <li key={item.name}>
               <a
                 href={item.href}
-                className="relative text-sm font-medium transition-colors hover:text-blue-400 px-3 py-2 rounded-lg hover-glow-subtle"
+                className="relative text-lg font-bold transition-colors hover:text-doodle-blue px-3 py-2 rounded-lg text-ink-black"
               >
                 {item.name}
                 {activeSection != null && activeSection === item.name && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-400 rounded-full"
-                    style={{ boxShadow: '0 0 10px rgba(59, 130, 246, 0.5)' }}
+                    className="absolute -bottom-1 left-0 right-0 h-1 bg-doodle-blue rounded-full"
+                    style={{ transform: 'rotate(-2deg)' }}
                     initial={false}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
