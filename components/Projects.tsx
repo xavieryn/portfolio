@@ -49,7 +49,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold mb-16 text-center"
+          className="text-4xl md:text-5xl font-bold mb-16 text-center font-sans"
         >
           Projects
         </motion.h2>
@@ -70,7 +70,7 @@ export default function Projects() {
               className="paper-card p-8 group cursor-pointer block"
               whileHover={{ scale: 1.02, rotate: -1 }}
             >
-              <h3 className="text-2xl font-bold mb-4 text-ink-black">{project.name}</h3>
+              <h3 className="text-2xl font-bold mb-4 text-ink-black font-sans">{project.name}</h3>
               <p className="text-gray-700 mb-6 leading-relaxed font-medium">
                 {project.description}
               </p>

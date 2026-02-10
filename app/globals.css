@@ -4,6 +4,7 @@
 
 :root {
   --paper-white: #fdfaf6;
+  --paper-cream: #fefce8; /* Creamy yellow for sticky notes */
   --ink-black: #1f2937;
   --doodle-blue: #2563eb;
 }
@@ -19,7 +20,8 @@ html {
 }
 
 body {
-  background-image: url('/cardboard.avif');
+  background-color: var(--paper-white);
+  background-image: url('/crumpledpaper.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -30,72 +32,78 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-riitn), cursive;
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-riitn), cursive;
+  }
 }
 
 /* Paper card effect */
 /* Sticky Note / Paper Card Effect */
+@property --peel-size {
+  syntax: '<length>';
+  initial-value: 0px;
+  inherits: false;
+}
+
 .paper-card {
+  --peel-size: 0px;
   position: relative;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid var(--ink-black);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--paper-cream);
+  /* clip-path prevents the background from showing in the corner */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--peel-size)),
+    calc(100% - var(--peel-size)) 100%,
+    0 100%
+  );
+  
+  /* Use drop-shadow to create depth around the clipped shape */
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.1));
+  
   border-radius: 2px;
   transform: rotate(-1deg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden; /* Ensures the pseudo-element doesn't overflow weirdly if not positioned right */
+  transition: transform 0.3s ease, --peel-size 0.3s ease;
 }
 
-/* Dog-ear / Peel effect */
-.paper-card::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 40px 40px;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent; /* Shadow of the curl */
-  box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-/* The actual white curl part */
+/* The actual peel flap (back of the sticky note) */
 .paper-card::before {
   content: "";
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 40px 40px;
-  border-color: transparent transparent #f0f0f0 transparent; /* The back of the paper */
-  transition: all 0.3s ease;
+  width: var(--peel-size);
+  height: var(--peel-size);
+  
+  /* Gradient simulating the back of the peeled paper */
+  background: linear-gradient(to bottom right, #fefce8 0%, #fef08a 45%, #fde047 50%, transparent 50%);
+  
+  /* Shadow for the flap itself */
+  filter: drop-shadow(-2px -2px 2px rgba(0, 0, 0, 0.1));
+  
+  transition: width 0.3s ease, height 0.3s ease;
   z-index: 10;
   pointer-events: none;
+  
+  /* Slight rounding at the tip */
+  border-radius: 0 0 0 4px; 
+}
+
+/* Remove the old ::after shadow approach which was static */
+.paper-card::after {
+  content: none;
 }
 
 .paper-card:hover {
+  --peel-size: 60px;
   transform: rotate(0deg) scale(1.02) translateY(-5px);
-  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.1);
-}
-
-.paper-card:hover::after,
-.paper-card:hover::before {
-  border-width: 0 0 60px 60px; /* Increase curl size on hover */
-}
-
-.paper-card:hover::before {
-  border-color: transparent transparent #e5e5e5 transparent; /* Slightly darker back logic */
+  filter: drop-shadow(5px 15px 15px rgba(0, 0, 0, 0.15));
 }
 
 /* Button style */
 .doodle-button {
-  background: var(--paper-white);
+  background: var(--paper-cream);
   border: 2px solid var(--ink-black);
   box-shadow: 3px 3px 0px var(--ink-black);
   color: var(--ink-black);
@@ -108,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 .doodle-button:hover {
   transform: translate(-1px, -1px);
   box-shadow: 5px 5px 0px var(--ink-black);
-  background: #f0f0f0;
+  background: #fef9c3;
 }
 
 .doodle-button:active {

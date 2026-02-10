@@ -50,7 +50,7 @@ export default function Experience() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-16 text-left"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-16 text-left font-sans"
         >
           My Work
         </motion.h2>
@@ -71,7 +71,7 @@ export default function Experience() {
               className="paper-card p-8 block group cursor-pointer"
               whileHover={{ scale: 1.02, rotate: 1 }}
             >
-              <h3 className="text-xl font-bold mb-2 text-ink-black">{exp.role}</h3>
+              <h3 className="text-xl font-bold mb-2 text-ink-black font-sans">{exp.role}</h3>
               <p className="text-doodle-blue font-bold mb-3">{exp.organization}</p>
               <p className="text-gray-700 leading-relaxed text-base font-medium">
                 {exp.description}
