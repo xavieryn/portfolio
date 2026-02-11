@@ -42,7 +42,8 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-start relative overflow-hidden"
+      className="min-h-screen flex items-center justify-start relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/title.png')" }}
     >
 
 
