@@ -42,20 +42,19 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-start relative overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/title.png')" }}
+      className="min-h-screen flex items-center justify-start relative overflow-hidden"
     >
 
 
-      <div className="container mx-auto px-6 sm:px-[8%] lg:px-[10%] relative z-10 w-full max-w-7xl">
+      <div className="w-full px-6 md:px-16 lg:px-40 relative z-10 max-w-[1920px] mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={mounted ? "visible" : "hidden"}
-          className="text-left"
+          className="text-left relative z-10"
         >
           {/* Typing effect - cycles through greetings */}
-          <motion.div variants={letterVariants}>
+          <motion.div variants={letterVariants} className="mb-6">
             <TypingText />
           </motion.div>
 
@@ -97,6 +96,21 @@ export default function Hero() {
               See My Work
             </motion.a>
           </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Decorative Title Image - Fixed position relative to viewport */}
+      <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 md:right-[-2%] lg:right-[1%] z-0 pointer-events-none select-none">
+        <motion.div
+          variants={letterVariants}
+          initial="hidden"
+          animate={mounted ? "visible" : "hidden"}
+        >
+          <img 
+            src="/title_x.png" 
+            alt="Title Graphic" 
+            className="h-64 md:h-96 lg:h-[35rem] xl:h-[45rem] 2xl:h-[55rem] w-auto object-contain rotate-3 opacity-60 md:opacity-90"
+          />
         </motion.div>
       </div>
 

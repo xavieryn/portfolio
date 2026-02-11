@@ -11,11 +11,12 @@ module.exports = {
         'paper-white': '#fdfaf6',
         'paper-cream': '#fefce8',
         'ink-black': '#1f2937',
-        'doodle-blue': '#2563eb',
+        'doodle-blue': 'var(--doodle-blue)',
       },
       fontFamily: {
         sans: ['var(--font-patrick-hand)', 'cursive'],
         riitn: ['var(--font-riitn)', 'cursive'],
+        formal: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       animation: {
         'float': 'float-doodle 4s ease-in-out infinite',

@@ -6,7 +6,7 @@
   --paper-white: #fdfaf6;
   --paper-cream: #fefce8; /* Creamy yellow for sticky notes */
   --ink-black: #1f2937;
-  --doodle-blue: #2563eb;
+  --doodle-blue: #545333;
 }
 
 * {
@@ -21,7 +21,7 @@ html {
 
 body {
   background-color: var(--paper-white);
-  background-image: url('/crumpledpaper.jpg');
+  background-image: url('/Gemini_Generated_Image_n9wxd7n9wxd7n9wx.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -153,4 +153,34 @@ body {
 
 .animate-float-doodle {
   animation: float-doodle 4s ease-in-out infinite;
+}
+
+/* Static paper sheet for detail pages */
+.paper-sheet {
+  --peel-size: 50px;
+  position: relative;
+  background-color: var(--paper-cream);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--peel-size)),
+    calc(100% - var(--peel-size)) 100%,
+    0 100%
+  );
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.1));
+  border-radius: 2px;
+}
+
+.paper-sheet::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: var(--peel-size);
+  height: var(--peel-size);
+  background: linear-gradient(to bottom right, #fefce8 0%, #fef08a 45%, #fde047 50%, transparent 50%);
+  filter: drop-shadow(-2px -2px 2px rgba(0, 0, 0, 0.1));
+  z-index: 10;
+  pointer-events: none;
+  border-radius: 0 0 0 4px;
 }

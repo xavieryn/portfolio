@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 const experiences = [
   {
@@ -10,21 +11,28 @@ const experiences = [
     organization: "Barn Owl Technologies",
     description:
       "Creating & deploying insect detection models on AWS using Docker. Building production-ready CV systems and helping farmers optimize pesticide usage.",
-    link: "https://www.barnowltechnologies.com/",
-  },
-  {
-    role: "Full-Stack Developer",
-    organization: "Afora",
-    description:
-      "Built a full-stack project management app with AI add-ons using OpenAI, React, Firebase, Next.js, and TypeScript. Secured $1,000 from Babson College's Foundry Grant.",
-    link: "https://afora1.vercel.app/",
+    link: "/work/owl-vision",
   },
   {
     role: "iOS Developer",
     organization: "Pl(ai)Lab",
     description:
       "Developed a Swift app using Apple's body pose detection to support cancer rehabilitation for adults 65+. Built Python backend with OpenAI Realtime API for custom workout guidance.",
-    link: "https://www.olin.edu/articles/story-oliners-collaborate-local-senior-center-artificial-intelligence-ai-and-augmented",
+    link: "/work/plailab",
+  },
+  {
+    role: "Project Manager",
+    organization: "Project AURA",
+    description:
+      "Managed a 5-person team building an autonomous cart capable of carrying 300lb loads. Led cross-functional integration of mechanical, electrical, and software systems under aggressive timelines.",
+    link: "/work/project-aura",
+  },
+  {
+    role: "Full-Stack Developer",
+    organization: "Afora",
+    description:
+      "Built a full-stack project management app with AI add-ons using OpenAI, React, Firebase, Next.js, and TypeScript. Secured $1,000 from Babson College's Foundry Grant.",
+    link: "/work/afora",
   },
   {
     role: "Research Assistant",
@@ -55,29 +63,32 @@ export default function Experience() {
           My Work
         </motion.h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 max-w-6xl">
-          {experiences.map((exp, index) => (
-            <motion.a
-              key={index}
-              href={exp.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, rotateX: -90, transformOrigin: "top" }}
-              animate={
-                isInView
-                  ? { opacity: 1, rotateX: 0 }
-                  : { opacity: 0, rotateX: -90 }
-              }
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="paper-card p-8 block group cursor-pointer"
-              whileHover={{ scale: 1.02, rotate: 1 }}
-            >
-              <h3 className="text-xl font-bold mb-2 text-ink-black font-sans">{exp.role}</h3>
-              <p className="text-doodle-blue font-bold mb-3">{exp.organization}</p>
-              <p className="text-gray-700 leading-relaxed text-base font-medium">
-                {exp.description}
-              </p>
-            </motion.a>
-          ))}
+          {experiences.map((exp, index) => {
+            const isInternal = exp.link.startsWith("/");
+            return (
+              <Link key={index} href={exp.link} passHref legacyBehavior>
+                <motion.a
+                  target={isInternal ? undefined : "_blank"}
+                  rel={isInternal ? undefined : "noopener noreferrer"}
+                  initial={{ opacity: 0, rotateX: -90, transformOrigin: "top" }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, rotateX: 0 }
+                      : { opacity: 0, rotateX: -90 }
+                  }
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="paper-card p-8 block group cursor-pointer"
+                  whileHover={{ scale: 1.02, rotate: 1 }}
+                >
+                  <h3 className="text-xl font-bold mb-2 text-ink-black font-sans">{exp.role}</h3>
+                  <p className="text-doodle-blue font-bold mb-3">{exp.organization}</p>
+                  <p className="text-gray-700 leading-relaxed text-base font-medium">
+                    {exp.description}
+                  </p>
+                </motion.a>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

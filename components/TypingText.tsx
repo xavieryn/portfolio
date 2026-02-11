@@ -48,7 +48,7 @@ export default function TypingText() {
 
   return (
     <h1
-      className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 min-h-[3rem] md:min-h-[3.5rem] lg:min-h-[4rem] flex items-center justify-start text-doodle-blue"
+      className="text-3xl md:text-4xl lg:text-5xl font-bold min-h-[3rem] md:min-h-[3.5rem] lg:min-h-[4rem] flex items-center justify-start text-doodle-blue"
     >
       {currentLine.slice(0, charIndex)}
       <span className="animate-pulse text-doodle-blue">
