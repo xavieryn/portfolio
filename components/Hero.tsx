@@ -105,6 +105,7 @@ export default function Hero() {
           variants={letterVariants}
           initial="hidden"
           animate={mounted ? "visible" : "hidden"}
+          
         >
           <img 
             src="/title_x.png" 

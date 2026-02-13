@@ -7,9 +7,16 @@ export default function About() {
       
       <div className="max-w-3xl mx-auto w-full">
         {/* Paper Sheet Container */}
-        <div className="paper-sheet p-8 md:p-12 lg:p-16 transform rotate-1 mx-auto relative">
+        <div 
+          className="paper-sheet p-8 md:p-12 lg:p-16 transform rotate-1 mx-auto relative"
+          style={{ 
+            backgroundImage: "url('/crumpledpaper.jpg')", 
+            backgroundSize: "cover", 
+            backgroundPosition: "center" 
+          }}
+        >
           
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center text-ink-black font-sans -rotate-2">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center text-ink-black font-sans">
             About Me
           </h1>
           
@@ -26,6 +33,15 @@ export default function About() {
             <p>
               In my free time, you will see me try to balance all of these things, though I usually focus on 1–2 at a time, and just have the others on the back burner.
             </p>
+            
+            <div className="py-2">
+              <h2 className="text-2xl font-bold mb-2 text-doodle-blue font-sans">
+                What am I currently learning?
+              </h2>
+              <p>
+                I am currently learning Portuguese & photography.
+              </p>
+            </div>
             
             <div className="pt-8 flex flex-col items-center gap-4">
               <p className="font-sans text-xl font-bold text-doodle-blue rotate-1">

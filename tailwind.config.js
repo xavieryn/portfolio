@@ -11,6 +11,7 @@ module.exports = {
         'paper-white': '#fdfaf6',
         'paper-cream': '#fefce8',
         'ink-black': '#1f2937',
+        'paper-brown': 'var(--paper-brown)',
         'doodle-blue': 'var(--doodle-blue)',
       },
       fontFamily: {

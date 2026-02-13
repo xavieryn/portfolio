@@ -121,6 +121,7 @@ export const projects: ProjectData[] = [
     name: "Project AURA",
     shortDescription: "Autonomous cart capable of following a user via reflective tape tracking.",
     tags: ["Robotics", "Electrical Engineering", "Project Management", "C++"],
+    externalLink: "https://xavieryn.github.io/AURA/",
     details: {
       title: "Project AURA",
       subtitle: "Autonomous Following Cart | Project Manager & Electrical Lead (Sophomore Year)",

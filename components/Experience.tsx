@@ -58,7 +58,7 @@ export default function Experience() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-16 text-left font-sans"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-16 text-left font-sans text-doodle-blue"
         >
           My Work
         </motion.h2>
