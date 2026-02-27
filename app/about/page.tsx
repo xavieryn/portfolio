@@ -42,18 +42,6 @@ export default function About() {
                 I am currently learning Portuguese & photography.
               </p>
             </div>
-            
-            <div className="pt-8 flex flex-col items-center gap-4">
-              <p className="font-sans text-xl font-bold text-doodle-blue rotate-1">
-                Want to see more details?
-              </p>
-              <a
-                href="/resume"
-                className="doodle-button text-xl px-8 py-3 rounded-full no-underline hover:shadow-[5px_5px_0px_var(--ink-black)] transition-all bg-white"
-              >
-                View My Resume
-              </a>
-            </div>
           </div>
         </div>
       </div>

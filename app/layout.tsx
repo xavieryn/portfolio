@@ -16,7 +16,7 @@ const riitn = localFont({
 
 export const metadata: Metadata = {
   title: 'Xavier Nishikawa - Portfolio',
-  description: 'Passionate Computer Science Student at Olin College of Engineering. Software Engineering Intern @ Barn Owl Technologies.',
+  description: 'Passionate Computer Science Student at Olin College of Engineering. Software Engineering Intern @ Owl Vision.',
 }
 
 export default function RootLayout({

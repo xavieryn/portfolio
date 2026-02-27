@@ -9,7 +9,7 @@ import Link from "next/link";
 const experiences = [
   {
     role: "Software Engineering Intern",
-    organization: "Barn Owl Technologies",
+    organization: "Owl Vision",
     description:
       "Creating & deploying insect detection models on AWS using Docker. Building production-ready CV systems and helping farmers optimize pesticide usage.",
     link: "/work/owl-vision",
@@ -68,63 +68,57 @@ export default function Experience() {
         >
           My Work
         </motion.h2>
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 max-w-4xl mx-auto">
+        <div className="flex flex-col gap-10 sm:gap-14 max-w-5xl mx-auto">
           {experiences.map((exp, index) => {
             const isInternal = exp.link.startsWith("/");
             return (
-              <React.Fragment key={index}>
-                <Link href={exp.link} passHref legacyBehavior>
-                  <motion.a
-                    target={isInternal ? undefined : "_blank"}
-                    rel={isInternal ? undefined : "noopener noreferrer"}
-                    initial={{ opacity: 0, rotateX: -90, transformOrigin: "top" }}
-                    animate={
-                      isInView
-                        ? { opacity: 1, rotateX: 0 }
-                        : { opacity: 0, rotateX: -90 }
-                    }
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="paper-card p-8 group cursor-pointer aspect-square flex flex-col justify-center"
-                    whileHover={{ scale: 1.02, rotate: -1 }}
-                  >
-                    <h3 className="text-xl font-bold mb-2 text-ink-black font-sans">{exp.role}</h3>
-                    <p className="text-doodle-blue font-bold mb-3">{exp.organization}</p>
-                    <p className="text-gray-700 leading-relaxed text-base font-medium">
+              <Link key={index} href={exp.link} passHref legacyBehavior>
+                <motion.a
+                  target={isInternal ? undefined : "_blank"}
+                  rel={isInternal ? undefined : "noopener noreferrer"}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, y: 0 }
+                      : { opacity: 0, y: 30 }
+                  }
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                  className="group cursor-pointer bg-white border-4 border-gray-200 rounded-2xl border-b-[12px] border-b-gray-300 shadow-xl p-6 sm:p-10 flex flex-col md:flex-row gap-8 items-stretch relative overflow-hidden"
+                >
+                  {/* Little whiteboard top-clip detail (optional decorative effect) */}
+                  <div className="absolute top-0 right-10 w-24 h-2 bg-gray-200 rounded-b-md opacity-50"></div>
+
+                  {/* Text Section / Whiteboard content */}
+                  <div className="w-full md:w-1/2 flex flex-col justify-center">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-ink-black font-sans">{exp.role}</h3>
+                    <p className="text-doodle-blue font-bold text-lg mb-4">{exp.organization}</p>
+                    <p className="text-gray-700 leading-relaxed text-base sm:text-lg font-medium">
                       {exp.description}
                     </p>
-                  </motion.a>
-                </Link>
+                  </div>
 
-                <Link href={exp.link} passHref legacyBehavior>
-                  <motion.a
-                    target={isInternal ? undefined : "_blank"}
-                    rel={isInternal ? undefined : "noopener noreferrer"}
-                    initial={{ opacity: 0, rotateX: -90, transformOrigin: "top" }}
-                    animate={
-                      isInView
-                        ? { opacity: 1, rotateX: 0 }
-                        : { opacity: 0, rotateX: -90 }
-                    }
-                    transition={{ duration: 0.5, delay: index * 0.1 + 0.1 }}
-                    className="paper-card group cursor-pointer aspect-square flex flex-col justify-center items-center p-4 relative overflow-hidden"
-                    whileHover={{ scale: 1.02, rotate: 1 }}
-                  >
+                  {/* Divider Line (like drawn on whiteboard) */}
+                  <div className="hidden md:block w-1 bg-gray-100 rounded-full mx-2"></div>
+
+                  {/* Image Section */}
+                  <div className="w-full md:w-1/2 flex items-center justify-center p-2 relative h-64 md:h-auto min-h-[16rem]">
                     {exp.image.endsWith('.pdf') ? (
                       <iframe
                         src={`${exp.image}#view=FitH&toolbar=0&navpanes=0`}
                         title={exp.role}
-                        className="w-full h-full object-cover pointer-events-none rounded border-2 border-gray-100"
+                        className="w-full h-full min-h-[16rem] object-cover pointer-events-none rounded border border-gray-200"
                       />
                     ) : (
                       <img
                         src={exp.image}
                         alt={`${exp.organization} project`}
-                        className="w-full h-full object-contain pointer-events-none"
+                        className="w-full h-full max-h-80 object-contain pointer-events-none drop-shadow-sm"
                       />
                     )}
-                  </motion.a>
-                </Link>
-              </React.Fragment>
+                  </div>
+                </motion.a>
+              </Link>
             );
           })}
         </div>

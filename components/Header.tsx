@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 
 const navItems = [
-  { name: 'Resume', href: '/resume' },
   { name: 'Photography', href: '/photography' },
   { name: 'About', href: '/about' },
 ]

@@ -31,7 +31,7 @@ export const projects: ProjectData[] = [
         },
         {
           heading: "Impact",
-          content: "Achieved 2x improvement in detection accuracy and 10x faster inference compared to the previous CNN-based system, enabling near real-time alerts to farmers in the field."
+          content: "Achieved 2x improvement in detection accuracy and 10x faster inference compared to the previous CNN-based system, enabling near real-time alerts to farmers in the field. This resulted in up to 50% less pesticide application and 10% increase in production."
         },
         {
           heading: "Technical Approach",
