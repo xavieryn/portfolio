@@ -7,7 +7,7 @@ import ScrollIndicator from "./ScrollIndicator";
 
 const school = "Electrical & Computer Engineering @ Olin College of Engineering";
 const subtext =
-  "I care more about building things people love than building things that just work.";
+  "";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
