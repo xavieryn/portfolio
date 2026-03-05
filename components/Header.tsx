@@ -25,12 +25,12 @@ export default function Header() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-paper-cream border-b-2 border-doodle-blue shadow-[0px_3px_0px_var(--doodle-blue)] py-3`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-paper-cream border-b-4 border-doodle-blue shadow-[0px_4px_0px_var(--doodle-blue)] py-4 md:py-5`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-[10%] flex items-center justify-between max-w-7xl">
         <motion.a
           href="/"
-          className="text-xl font-bold block shrink-0 text-doodle-blue"
+          className="text-2xl md:text-3xl font-bold block shrink-0 text-doodle-blue transition-colors hover:text-ink-black"
           whileHover={{ scale: 1.05, rotate: -5 }}
         >
           XN
@@ -40,7 +40,7 @@ export default function Header() {
             <li key={item.name}>
               <a
                 href={item.href}
-                className="relative text-lg font-bold transition-colors hover:text-doodle-blue px-3 py-2 rounded-lg text-doodle-blue"
+                className="relative text-xl md:text-2xl font-bold transition-colors hover:text-ink-black px-3 py-2 rounded-lg text-doodle-blue"
               >
                 {item.name}
                 {activeSection != null && activeSection === item.name && (

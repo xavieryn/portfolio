@@ -26,7 +26,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${patrickHand.variable} ${riitn.variable}`}>{children}</body>
+      <body className={`${patrickHand.variable} ${riitn.variable}`}>
+        {children}
+
+        {/* Global night-time desk lighting. Overlays all content so everything is in the dark/light room. */}
+        {/* Brighter orange lamp, lighter shadows */}
+        <div className="pointer-events-none fixed inset-0 z-[100] bg-gradient-to-bl from-[#ff7a1f]/35 via-black/10 to-black/40" style={{ mixBlendMode: 'normal' }} />
+      </body>
     </html>
   )
 }

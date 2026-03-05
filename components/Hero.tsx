@@ -80,14 +80,6 @@ export default function Hero() {
             className="flex gap-6 justify-start flex-wrap"
           >
             <motion.a
-              href="/about"
-              className="doodle-button rounded-full text-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Resume
-            </motion.a>
-            <motion.a
               href="#experience"
               className="doodle-button rounded-full text-lg"
               whileHover={{ scale: 1.05 }}
