@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { Patrick_Hand } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 
 const patrickHand = Patrick_Hand({
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${patrickHand.variable} ${riitn.variable}`}>
         {children}
+        <Analytics />
 
         {/* Global night-time desk lighting. Overlays all content so everything is in the dark/light room. */}
         {/* Brighter orange lamp, lighter shadows */}
